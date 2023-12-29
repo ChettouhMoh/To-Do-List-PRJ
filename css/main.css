@@ -30,9 +30,14 @@
     align-items: center;
     margin-bottom: 20px;
 }
-.todo-app h2 img{
-    width: 30px;
-    margin-left: 10px;
+.todo-app h2 i{
+    font-size: 30px;
+    margin-left: 16px;
+}
+@media (max-width: 767px) {
+    .todo-app h2 {
+        justify-content: center;
+    }
 }
 .row {
     display: flex;
@@ -81,28 +86,45 @@ ul li {
     position: relative;
 }
 
-
-ul li::before {
-    content: "";
-    position: absolute;
-    width: 28px;
-    height: 28px;
+ul li .circle{
+    width: 23px;
+    height: 23px;
+    background-color: white;
     border-radius: 50%;
-    background-image: url(/images/unchecked.png);
-    background-position: center;
-    background-size: cover;
-    top: 7px;
-    left: 8px;
+    position: absolute;
+    top: 12px;
+    left: 14px;
+    z-index: 1;
+    border: 2px solid black;
+}
+ul li.checked .circle{
+    width: 23px;
+    height: 23px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    border: none;
+    top: 12px;
+    left: 14px;
+}
+ul li .fa-check{
+    position: absolute;
+    top: 15px;
+    left: 18px;
+    z-index: 2;
+    font-size: 16px;
+    color: white;
+    display: none;
+}
+ul li.checked .fa-check{
+    display: block;
 }
 @media (max-width: 767px){
     ul li{
         font-size: 15px;
     }
-    ul li::before{
-        width: 24px;
-        height: 24px;
-        top: 9px;
-        left: 15px;
+    ul li .fa-check {
+        top: 16px;
     }
 }
 
@@ -112,9 +134,6 @@ ul li.checked{
     text-decoration: line-through;
 }
  
-ul li.checked::before {
-    background-image: url(/images/checked.png);
-}
 ul li span {
     position: absolute;
     right: 0;
@@ -130,3 +149,4 @@ ul li span {
 ul li span:hover{
     background: #edeef0;
 }
+

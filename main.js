@@ -9,8 +9,14 @@ function addTask(){
         li.innerHTML = inputBox.value;
         listContainer.appendChild(li);
         let span = document.createElement("span");
-        span.innerHTML = "\u00d7"; 
+        let div = document.createElement("div")
+        let icon2 = document.createElement("i")
+        span.innerHTML = "\u00d7";
+        div.classList = "circle" 
+        icon2.classList = "fas fa-check"
         li.appendChild(span);
+        li.appendChild(div);
+        li.appendChild(icon2);
 
     }
     inputBox.value = "";
@@ -20,7 +26,7 @@ function addTask(){
 listContainer.addEventListener("click", function(e){
     if(e.target.tagName === "LI"){
         e.target.classList.toggle("checked");
-
+        
         saveData();
     }else if (e.target.tagName === "SPAN"){
         e.target.parentElement.remove();
